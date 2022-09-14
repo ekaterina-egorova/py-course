@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 def middle_letters(text):
     str_text = str(text)
     length = len(str_text)
@@ -16,5 +15,4 @@ assert middle_letters('') == ''
 text = input("Please enter a word:")
 result = middle_letters(text)
 print (f'Middle letter{" is" if len(result) == 1 else "s are"}: {result}')
-
 
