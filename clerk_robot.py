@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
-# In[258]:
-
-
 documents = [
  {'type': 'passport', 'number': '2207 876234', 'name': 'Василий Гупкин'},
  {'type': 'invoice', 'number': '11-2', 'name': 'Геннадий Покемонов'},
@@ -65,7 +61,7 @@ while break_cmd != answer:
         if owner:
             print(f'Результат:\nВладелец документа: {owner}')
         else:
-            print('Документ не найден')
+            print('Владелец не найден')
     
     if lookup_directory_cmd == answer:
         directory = lookup_directory(document_number)
