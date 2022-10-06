@@ -54,5 +54,5 @@ plt.plot(x, linear_regression(x, y), color="green")
 plt.xlim(0, sample_size)
 plt.ylim(0, sample_size)
 
-print ("Blue -- original 0.5*x line, green -- builded line:")
+print ("Blue -- original 0.5*x line, green -- built line:")
 
