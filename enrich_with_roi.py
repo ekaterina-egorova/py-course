@@ -1,23 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[80]:
-
-
-def enrich_with_roi(campaigns: dict): # ~ requires ~ 5 campaigns memory size 
+def enrich_with_roi(campaigns: dict): 
     if None == campaigns:
         raise ValueError('campaigns=None')
     
-    enriched_campaigns = {} # since sorting is required then I'm going to copy all the data into a new structure 
-    
-    for source, indicators in campaigns.items():
+    for indicators in campaigns.values():
         revenue: float = indicators['revenue']
         cost: float = indicators['cost']
-            
-        enriched_indicators = {'ROI': (revenue / cost - 1) * 100, 'cost': cost, 'revenue': revenue}            
-        enriched_campaigns[source] = enriched_indicators
-    
-    return dict(sorted(enriched_campaigns.items(), key=lambda k: k[1]['ROI'], reverse=True))
+        roi = (revenue / cost - 1) * 100           
+        indicators['ROI'] = roi
+     
+    # going to use the source campaigns data and do not copy memery
+    l = list(campaigns.items())
+    l.sort(key=lambda c: c[1]['ROI'], reverse=True)
+
+    return dict(l)
 
 
 campaigns = {
@@ -30,4 +28,3 @@ campaigns = {
 
 print (f'Sample campaigns data:\n{campaigns}')
 print (f'Enriched with ROI result:\n{enrich_with_roi(campaigns)}')
-
