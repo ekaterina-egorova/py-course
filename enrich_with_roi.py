@@ -9,8 +9,9 @@ def enrich_with_roi(campaigns: dict): # I decided to modify source data and do n
         revenue: float = indicators['revenue']
         cost: float = indicators['cost']
         roi = (revenue / cost - 1) * 100           
-        indicators['ROI'] = roi
+        indicators['ROI'] = roi # original data modification
      
+    # trying to build sorted iterator over original data
     l = list(campaigns.items())
     l.sort(key=lambda c: c[1]['ROI'], reverse=True)
 
