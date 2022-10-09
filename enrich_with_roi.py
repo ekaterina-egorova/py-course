@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-def enrich_with_roi(campaigns: dict): 
+def enrich_with_roi(campaigns: dict): # I decided to modify source data and do not copy memory
     if None == campaigns:
         raise ValueError('campaigns=None')
     
@@ -11,7 +11,6 @@ def enrich_with_roi(campaigns: dict):
         roi = (revenue / cost - 1) * 100           
         indicators['ROI'] = roi
      
-    # going to use the source campaigns data and do not copy memery
     l = list(campaigns.items())
     l.sort(key=lambda c: c[1]['ROI'], reverse=True)
 
